@@ -25,7 +25,11 @@ int main() {
                 case 's':
                 case 'S':
                     printf("请输入要倒计时的时间(格式为 HH MM SS):");
-                    scanf("%d%d%d", &h, &m, &s);
+                    while (scanf("%d%d%d", &h, &m, &s) != 3) {
+                            printf("输入错误，请重新输入!\n");
+                            // 重新读取输入
+                            while ((getchar()) != '\n'); // 清空输入缓冲区
+                    }
                     printf("按空格开始倒计时...\n");
                     h = h * 3600;
                     m = m * 60;
